@@ -1,0 +1,23 @@
+from marshmallow import Schema, fields
+
+class ElementoSchema(Schema):
+    id = fields.Int()
+    sku_elemnto = fields.Str(required=True)
+    nmbre_elemnto = fields.Str(required=True)
+    dscrpcion_elemnto = fields.Str(required=True)
+    lote_elemnto = fields.Str(required=True)
+    ctgria_elemnto = fields.Int(required=True)
+    und_elemnto = fields.Int(required=True)
+    exstncia_elemnto = fields.Int(required=True)
+    prsntacion_elemnto = fields.Str(required=True)
+    lbrtorio_elemnto = fields.Str(required=True)
+    cntrolado_elemnto = fields.Str(required=True)
+    bdga_elemnto = fields.Int(required=True)
+    precio_venta_ac = fields.Float(required=True)
+    precio_venta_an = fields.Float(required=True)
+    costo_venta = fields.Float(required=True)
+    mrgen_utldad = fields.Float(required=True)
+    tiene_iva = fields.Str(required=True)
+    stock_minimo = fields.Int(required=True)
+    stock_maximo = fields.Int(required=True)
+    estdo_elmnto = fields.Str(required=True)
