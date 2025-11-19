@@ -6,6 +6,10 @@ from models.db import db
 from controllers.elemento_controller import elemento_bp
 from controllers.movimientos_controller import movimientos_bp
 from controllers.test_controller import test_bp
+from models.tipomov import TipoMov
+from models.movimiento import Movimiento
+from models.elemento import Elemento
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)

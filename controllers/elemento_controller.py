@@ -40,3 +40,10 @@ def delete(id):
     if error:
         return jsonify({"error": error}), 400
     return jsonify({"mensaje": "Elemento marcado como inactivo"}), 200
+
+@elemento_bp.route("/<int:id>/force", methods=["DELETE"])
+def force_delete(id):
+    ok, error = ElementoService.force_delete(id)
+    if error:
+        return jsonify({"error": error}), 400
+    return jsonify({"mensaje": "Elemento eliminado permanentemente"}), 200

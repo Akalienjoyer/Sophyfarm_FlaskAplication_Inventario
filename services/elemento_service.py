@@ -50,3 +50,19 @@ class ElementoService:
         except Exception as e:
             db.session.rollback()
             return None, str(e)
+        
+
+    @staticmethod
+    def force_delete(id):
+        elem = Elemento.query.get(id)
+        if not elem:
+            return None, "Elemento no encontrado"
+
+        try:
+            db.session.delete(elem)  # Elimina físicamente
+            db.session.commit()
+            return True, None
+        except Exception as e:
+            db.session.rollback()
+            return None, str(e)
+
