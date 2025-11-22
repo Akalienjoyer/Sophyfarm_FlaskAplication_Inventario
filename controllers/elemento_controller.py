@@ -49,7 +49,7 @@ def get_by_id(id):
         return jsonify({"error": "Elemento no encontrado"}), 404
     return jsonify(schema.dump(elem)), 200
 
-@elemento_bp.route("/", methods=["POST"])
+@elemento_bp.route("/", methods=["POST", "OPTIONS"])
 def create():
     """
     Crear un nuevo elemento
@@ -78,6 +78,9 @@ def create():
         description: Error de validación
     """
     
+    if request.method == "OPTIONS":
+        return {}, 200  
+
     data = request.json
     elem, error = ElementoService.create(data)
     if error:
@@ -162,3 +165,6 @@ def force_delete(id):
     if error:
         return jsonify({"error": error}), 400
     return jsonify({"mensaje": "Elemento eliminado permanentemente"}), 200
+
+
+
